@@ -1,0 +1,62 @@
+﻿@model List<EP.UI.Dtos.EducationDtos.ResultEducationDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+	int count = 0;
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Aktif Eğitimler</h4>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Eğitim Listesi</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            Eğitimler ile ilgili işlemleri aşağıdan gerçekleştirebilirsiniz.
+                        </div>
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Eğitim Adı</th>
+                                    <th scope="col">Eğitim Türü</th>
+                                    <th scope="col">Eğitim Zamanı</th>
+                                    <th scope="col">Eğitim Fiyatı</th>
+                                    <th scope="col">Eğitim Kontenjanı</th>
+                                    <th scope="col">Eğitimi Sil</th>
+                                    <th scope="col">Eğitimi Güncelle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <th>@count</th>
+                                        <td>@item.EducationName</td>
+                                        <td>@item.EducationType</td>
+                                        <td>@item.EducationTime</td>
+                                        <td>@item.EducationPrice</td>
+                                        <td>@item.Capacity</td>
+                                        <td><a href="/Education/DeleteEducation/@item.EducationId" class="btn btn-outline-primary">Eğitimi Sil</a></td>
+                                        <td><a href="/Education/UpdateEducation/@item.EducationId" class="btn btn-outline-primary">Eğitimi Güncelle</a></td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="/Education/CreateEducation/" class="btn btn-outline-primary">Yeni Eğitim Girişi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

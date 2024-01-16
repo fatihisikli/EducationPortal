@@ -1,0 +1,51 @@
+﻿@model EP.UI.Dtos.EducationUserDtos.EducationwithEducationUser
+@{
+    ViewData["Title"] = "CreateEducationUser";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Eğitim Ekleme İşlemleri</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Yeni Eğitim Girişi</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="categoryname">Eğitim Adını Seçiniz</label>
+                                <select class="form-control" asp-for="createEducationUserDto.EducationUserType" id="categoryname">
+                                    @foreach (var item in Model.resultEducationDto)
+                                    {
+                                        <option value="@item.Text">@item.Text</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="categoryname">Eğitim Türünü Seçiniz</label>
+                                <select class="form-control" asp-for="createEducationUserDto.EducationUserName" id="categoryname">
+                                    <option value="Online">Online</option>
+                                    <option value="Sınıf İçi Eğitim">Sınıf İçi Eğitim</option>
+                                    <option value="Kitap">Kitap</option>
+                                    <option value="Makale">Makale</option>
+                                    <option value="Mini Proje">Mini Proje</option>
+                                    <option value="Sunum">Sunum</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="card-action">
+                            <button class="btn btn-primary">Eğitimi Al</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

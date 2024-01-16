@@ -1,0 +1,52 @@
+﻿@model List<EP.UI.Dtos.EducationDtos.ResultEducationDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    int count = 0;
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Aktif Eğitimler</h4>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-sub">
+                            Bu Liste Aktif Kaydı Devam Eden Eğitimleri İçerir.
+                        </div>
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Eğitim Adı</th>
+                                    <th scope="col">Eğitim Türü</th>
+                                    <th scope="col">Eğitim Zamanı</th>
+                                    <th scope="col">Eğitim Fiyatı</th>
+                                    <th scope="col">Eğitim Kontenjanı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <th>@count</th>
+                                        <td>@item.EducationName</td>
+                                        <td>@item.EducationType</td>
+                                        <td>@item.EducationTime</td>
+                                        <td>@item.EducationPrice</td>
+                                        <td>@item.Capacity</td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="/EducationUser/CreateEducationUser/" class="btn btn-outline-primary">Yeni Eğitim Al</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

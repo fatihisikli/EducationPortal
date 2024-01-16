@@ -1,0 +1,53 @@
+﻿@model List<EP.UI.Dtos.EducationUserDtos.DevamEdenEgitimUserDto>
+@{
+    ViewData["Title"] = "DevamEdenEgitimUser";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    int count = 0;
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Devam Eden Eğitimlerim</h4>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Eğitim Adı</th>
+                                    <th scope="col">Eğitim Türü</th>
+                                    <th scope="col">Alınma Zamanı</th>
+                                    <th scope="col">Eğitim Durumu</th>
+                                    <th scope="col">İade Et</th>
+                                    <th scope="col">Tamamla</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <th>@count</th>
+                                        <td>@item.EducationUserType</td>
+                                        <td>@item.EducationUserName</td>
+                                        <td>@item.EducationDate</td>
+                                        <td>@item.Status</td>
+                                        <td><a href="/EducationUser/DeleteEducationUser/@item.EducationUserId" class="btn btn-outline-primary">İade Et</a></td>
+                                        <td><a href="/EducationUser/CompletedEducationUser/@item.EducationUserId" class="btn btn-outline-primary">Tamamla</a></td>
+                                           
+                                     
+                                    </tr>
+                                }
+    
+                            </tbody>
+                        </table>
+                        <a href="/EducationUser/CreateEducationUser/" class="btn btn-outline-primary">Yeni Eğitim Al</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

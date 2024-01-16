@@ -1,0 +1,94 @@
+﻿@model EP.UI.Dtos.UserIdentityDtos.RegisterDto
+@{
+    Layout = null;
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Bu Kullanici Kayıt Sayfasıdır.</p>
+<div class="wrapper">
+    <div class="inner">
+        <form method="post">
+            <h3>New Account?</h3>
+
+            <div class="row mb-3">
+                <lavel class="col-sm-4 col-form-label">Adınız</lavel>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Name" type="text">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <lavel class="col-sm-4 col-form-label">Soyadınız</lavel>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Surname" type="text">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <lavel class="col-sm-4 col-form-label">Email</lavel>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Mail" type="text">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <lavel class="col-sm-4 col-form-label">Kullanıcı Adınız</lavel>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Username" type="text">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Şifre</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Password" type="password" id="passwordInput">
+                    <span id="passwordIndicator" style="margin-left: 5px;"></span>
+                    <label id="passwordMessage" style="color: red;"></label>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <lavel class="col-sm-4 col-form-label">Şifreyi kriterlere göre girerseniz kayıt ol butonu açılır.</lavel>
+            </div>
+          
+            <button type="submit" id="submitButton" disabled>
+                <span>Kayıt Ol</span>
+            </button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var passwordInput = document.getElementById('passwordInput');
+        var passwordIndicator = document.getElementById('passwordIndicator');
+        var passwordMessage = document.getElementById('passwordMessage');
+        var submitButton = document.getElementById('submitButton');
+
+        passwordInput.addEventListener('input', function () {
+            var password = passwordInput.value;
+
+            var hasUpperCase = /[A-Z]/.test(password);
+            var hasLowerCase = /[a-z]/.test(password);
+            var hasSpecialChar = /[!@@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password);
+            var isLengthValid = password.length >= 8;
+
+            if (hasUpperCase && hasLowerCase && hasSpecialChar && isLengthValid) {
+                passwordIndicator.style.color = 'green';
+                passwordIndicator.innerHTML = '✔';
+                passwordMessage.innerHTML = '';
+                submitButton.disabled = false;
+            } else {
+                passwordIndicator.style.color = 'red';
+                passwordIndicator.innerHTML = '✘';
+                passwordMessage.innerHTML = 'Şifreniz en az 8 karakter uzunluğunda olmalı, bir büyük harf, bir küçük harf ve bir özel karakter içermelidir.';
+                submitButton.disabled = true;
+            }
+        });
+    });
+
+    function validateForm() {
+        // Diğer form validasyonları da burada yapılabilir
+        return !submitButton.disabled;
+    }
+</script>

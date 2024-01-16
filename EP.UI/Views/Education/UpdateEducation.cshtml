@@ -1,0 +1,69 @@
+﻿@model EP.UI.Dtos.EducationDtos.UpdateEducationDto
+@{
+    ViewData["Title"] = "UpdateEducation";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Eğitim Ekleme İşlemleri</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Eğitim Güncelleme Sayfası</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="categoryname">Id</label>
+                                <input type="text" class="form-control" asp-for="EducationId" id="categoryname" readonly>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="categoryname">Eğitim Adını Giriniz</label>
+                                <input type="text" class="form-control" asp-for="EducationName" id="categoryname">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="categoryname">Eğitim Türünü Seçiniz</label>
+                                <select class="form-control" asp-for="EducationType" id="categoryname">
+                                    <option value="Online">Online</option>
+                                    <option value="Sınıf İçi Eğitim">Sınıf İçi Eğitim</option>
+                                    <option value="Kitap">Kitap</option>
+                                    <option value="Makale">Makale</option>
+                                    <option value="Mini Proje">Mini Proje</option>
+                                    <option value="Sunum">Sunum</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="categoryname">Eğitim zamanı Giriniz</label>
+                                <input type="text" class="form-control" asp-for="EducationTime" id="categoryname">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="categoryname">Eğitim Fiyatı Giriniz</label>
+                                <input type="text" class="form-control" asp-for="EducationPrice" id="categoryname">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="categoryname">Eğitim Kontenjanı Giriniz</label>
+                                <input type="text" class="form-control" asp-for="Capacity" id="categoryname">
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-primary">Eğitimi Güncelle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
