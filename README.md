@@ -2,7 +2,7 @@
 
 # Kullanılan Teknolojiler:
 1) ⚒️ Backend: .Net API
-2) 🔥 Frontend: MVC Mimarisi,Html,CSS,JS
+2) 🔥 Frontend: MVC Design,Html,CSS,JS
 3) 🔏 Database: Mssql
 4) EntityFramework
 5) Asp.Net Core Identity
